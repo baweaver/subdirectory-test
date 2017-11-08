@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This test application is configured with two `Post`s and is meant to run under the subdirectory '/foo/bar' in "production".
 
-Things you may want to cover:
+**Warning**: You also need to change `config.ru` for this to work.
 
-* Ruby version
+## Development Mode
 
-* System dependencies
+```bash
+rake db:create db:migrate db:seed
+rails s
+```
 
-* Configuration
+Visit: http://localhost:3000/posts/1
 
-* Database creation
+All text should be blue if assets were included correctly
 
-* Database initialization
+## Production Subdirectory Mode
 
-* How to run the test suite
+```bash
+RAILS_ENV=production rake db:create db:migrate db:seed
+RAILS_ENV=production rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Config: config/environments/production.rb
+Visit: http://localhost:3000/foo/bar/posts/1
 
-* Deployment instructions
-
-* ...
+All text should be blue if assets were included correctly

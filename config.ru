@@ -2,4 +2,7 @@
 
 require_relative 'config/environment'
 
-run Rails.application
+# It also requires this
+map SubdirectoryTest::Application.config.relative_url_root || '/' do
+  run Rails.application
+end
